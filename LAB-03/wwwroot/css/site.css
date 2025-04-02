@@ -1,0 +1,212 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styles */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fef4e5; /* Màu cam nhạt cho nền */
+    color: #444; /* Màu chữ tối hơn để dễ đọc trên nền sáng */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    min-height: 100vh;
+}
+
+/* Container Styles */
+.container {
+    background-color: #fff;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Header Styles */
+header {
+    background-color: #ff6f61; /* Màu đỏ cam đậm cho header */
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Navigation Styles */
+nav {
+    background-color: #d35400; /* Màu cam đậm cho navigation */
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+    nav ul {
+        list-style: none;
+    }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+            nav ul li a {
+                color: #fff;
+                text-decoration: none;
+                font-weight: bold;
+                transition: color 0.3s ease;
+            }
+
+                nav ul li a:hover {
+                    color: #ffd1b3; /* Màu chữ nhạt hơn khi hover */
+                    text-decoration: none;
+                }
+
+/* Product List Styles */
+.product-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
+.product-card {
+    background-color: #fff;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+    .product-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .product-card img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 8px;
+        margin-bottom: 15px;
+    }
+
+.product-name {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.product-price {
+    color: #27ae60;
+    font-size: 1.1em;
+    margin-bottom: 15px;
+}
+
+.product-description {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.product-button {
+    background-color: #ff9f43; /* Màu cam sáng cho nút */
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    text-decoration: none;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+    .product-button:hover {
+        background-color: #e67e22; /* Màu cam đậm hơn khi hover */
+    }
+
+/* Button Styles */
+.btn-view {
+    background-color: #ff9f43;
+}
+
+    .btn-view:hover {
+        background-color: #e67e22;
+    }
+
+.btn-edit {
+    background-color: #16a085; /* Màu xanh ngọc */
+}
+
+    .btn-edit:hover {
+        background-color: #138d75;
+    }
+
+.btn-delete {
+    background-color: #c0392b;
+}
+
+    .btn-delete:hover {
+        background-color: #a93226;
+    }
+
+/* Sidebar Styles */
+.sidebar {
+    background-color: #fff3e0; /* Màu cam rất nhạt cho sidebar */
+    color: #333;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+    .sidebar h3 {
+        margin-bottom: 15px;
+    }
+
+    .sidebar ul {
+        list-style: none;
+    }
+
+        .sidebar ul li {
+            margin-bottom: 10px;
+        }
+
+            .sidebar ul li a {
+                color: #ff9f43;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+
+                .sidebar ul li a:hover {
+                    color: #e67e22;
+                    text-decoration: none;
+                }
+
+/* Footer Styles */
+.footer {
+    background-color: #2c3e50;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: auto;
+    width: 100%;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .product-list {
+        grid-template-columns: 1fr;
+    }
+
+    .sidebar {
+        grid-column: 1 / -1;
+    }
+}

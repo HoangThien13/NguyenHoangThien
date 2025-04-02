@@ -1,0 +1,84 @@
+﻿@model IEnumerable<LAB_03.Models.Product>
+@inject Microsoft.AspNetCore.Http.IHttpContextAccessor HttpContextAccessor
+
+@{
+    ViewData["Title"] = "Home Page";
+    int numOfQuantity = 1;
+    var isListView = HttpContextAccessor.HttpContext.Request.Query["view"] == "list";
+}
+
+<section class="py-2">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="d-flex justify-content-end mb-3">
+            <button id="toggleViewBtn" class="btn btn-outline-primary">
+                @if (isListView)
+                {
+                    <text>Chuyển sang dạng lưới</text>
+                }
+                else
+                {
+                    <text>Chuyển sang dạng danh sách</text>
+                }
+            </button>
+
+        </div>
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            @if (isListView)
+            {
+                <div class="list-group">
+                    @foreach (var item in Model)
+                    {
+                        <div class="list-group-item">
+                            <div class="d-flex w-100 justify-content-between">
+                                <h5 class="mb-1">@Html.DisplayFor(modelItem => item.Name)</h5>
+                                <small>@item.Price.ToString("#,##0") VND</small>
+                            </div>
+                            <p class="mb-1"><img src="@item.ImageUrl" alt="..." style="height: 100px"></p>
+                            <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@item.Id" asp-route-quantity="@numOfQuantity">
+                                <button class="btn btn-outline-dark">
+                                    <i class="bi-cart-fill me-1"></i> Thêm vào giỏ hàng
+                                </button>
+                            </a>
+                        </div>
+                    }
+                </div>
+            }
+            else
+            {
+                @foreach (var item in Model)
+                {
+                    <div class="col mb-5">
+                        <div class="card gap-3" style="width: 18rem">
+                            <img src="@item.ImageUrl" class="card-img-top" alt="..." style="height: 300px">
+                            <div class="card-body">
+                                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)</h5>
+                                <div class="d-flex">
+                                    <span>Price: </span>
+                                    <p class="mx-3">@item.Price.ToString("#,##0") VND</p>
+                                </div>
+                                <a asp-controller="ShoppingCart" asp-action="AddToCart" asp-route-productId="@item.Id" asp-route-quantity="@numOfQuantity">
+                                    <button class="btn btn-outline-dark">
+                                        <i class="bi-cart-fill me-1"></i> Thêm vào giỏ hàng
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+        </div>
+    </div>
+</section>
+
+@section Scripts {
+    <script>
+        document.getElementById('toggleViewBtn').addEventListener('click', function () {
+            var currentUrl = window.location.href;
+            var newUrl = currentUrl.includes('view=list') ? currentUrl.replace('view=list', 'view=grid') : currentUrl.replace('view=grid', 'view=list');
+            if (!currentUrl.includes('view=')) {
+                newUrl = currentUrl.includes('?') ? currentUrl + '&view=list' : currentUrl + '?view=list';
+            }
+            window.location.href = newUrl;
+        });
+    </script>
+}

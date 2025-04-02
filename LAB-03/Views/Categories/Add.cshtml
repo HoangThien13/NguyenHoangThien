@@ -1,0 +1,23 @@
+﻿@model LAB_03.Models.Category
+@using Microsoft.AspNetCore.Mvc.Rendering
+
+<h1 class="text-center text-primary mt-4">🛒 Thêm loại mới</h1>
+
+<div class="container mt-4">
+    <form asp-action="Add" method="post" class="card p-4 shadow-lg">
+        <div asp-validation-summary="All" class="text-danger"></div>
+
+        <div class="form-group mb-3">
+            <label asp-for="Name" class="fw-bold">Tên loại</label>
+            <input asp-for="Name" class="form-control" placeholder="Nhập tên loại..." required />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-success">✅ Thêm</button>
+            <a asp-controller="Product" asp-action="Index" class="btn btn-secondary">
+                🔙 Quay lại danh sách
+            </a>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,18 @@
+﻿@model LAB_03.Models.Category
+
+<div class="container mt-5">
+    <h2 class="text-center text-danger">🗑 Xóa loại sản phẩm</h2>
+
+    <div class="alert alert-warning text-center">
+        <p>Bạn có chắc chắn muốn xóa loại "<strong>@Model.Name</strong>"?</p>
+    </div>
+
+    <form asp-action="DeleteConfirmed" method="post">
+        <input type="hidden" asp-for="Id" />
+
+        <div class="text-center">
+            <button type="submit" class="btn btn-danger">✅ Xác nhận</button>
+            <a asp-action="Index" class="btn btn-secondary">🔙 Hủy</a>
+        </div>
+    </form>
+</div>

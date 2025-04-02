@@ -1,0 +1,57 @@
+﻿@model ShoppingCart
+
+
+<h2>Your Cart</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Sản Phẩm</th>
+            <th>Số Lượng</th>
+            <th>Giá</th>
+            <th>Tổng</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Items)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>
+                    <form asp-action="UpdateItemQuantity" method="post" class="form-inline">
+                        <input type="hidden" name="productId" value="@item.ProductId" />
+                        <input type="number" name="quantity" value="@item.Quantity" class="form-control" style="width: 60px;" />
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </td>
+                <td>@item.Price.ToString("#,##0")</td>
+                <td>@Model.FormatPriceToVND(item.Price * item.Quantity)</td>
+                <td>
+                    <a asp-action="RemoveFromCart" asp-route-productId="@item.ProductId" class="btn btn-danger">Bỏ</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="cart-summary">
+    <h3>Tóm tắt giỏ hàng</h3>
+    <p>Tổng sản phẩm: @Model.Items.Sum(item => item.Quantity)</p>
+    <p>Tổng giá: @Model.FormatPriceToVND(Model.Items.Sum(item => item.Price * item.Quantity))</p>
+    <a asp-action="Checkout" class="btn btn-success">
+        Tiến hành thanh toán
+    </a>
+</div>
+<a asp-controller="Home" asp-action="Index" class="btn btn-secondary">⬅ Quay lại</a>
+<style>
+    .cart-summary {
+        margin-top: 20px;
+        padding: 10px;
+        border: 1px solid #ddd;
+        background-color: #f9f9f9;
+    }
+
+        .cart-summary h3 {
+            margin-top: 0;
+        }
+</style>

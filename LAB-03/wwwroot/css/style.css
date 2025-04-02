@@ -1,0 +1,110 @@
+﻿
+.navbar {
+    background-color: #212529 !important; /* Dark mode */
+    padding: 10px 20px;
+}
+
+.navbar-brand {
+    color: #f8f9fa !important;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    color: #f8f9fa !important;
+    margin-right: 15px;
+    transition: color 0.3s ease-in-out;
+}
+
+    .navbar-nav .nav-link:hover {
+        color: #f1c40f !important; /* Màu vàng highlight */
+    }
+
+.card {
+    border: none;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+    border-radius: 10px;
+}
+
+    .card:hover {
+        transform: scale(1.05);
+    }
+
+    .card img {
+        max-height: 180px;
+        object-fit: contain;
+    }
+
+.price {
+    font-weight: bold;
+    color: #28a745;
+}
+
+.btn {
+    border-radius: 8px;
+    transition: background-color 0.3s ease-in-out;
+}
+
+    .btn:hover {
+        filter: brightness(90%);
+    }
+
+@media (max-width: 768px) {
+    .navbar-nav {
+        text-align: center;
+    }
+
+    .card {
+        margin-bottom: 20px;
+    }
+}
+
+.footer-custom {
+    background-color: #f8f9fa;
+    padding: 10px 0;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+.footer {
+    background-color: #212529 !important; /* Dark mode */
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: auto;
+}
+
+    .footer a {
+        color: white;
+        text-decoration: none;
+    }
+
+        .footer a:hover {
+            color: #f1c40f; /* Màu vàng khi hover */
+        }
+
+.btn-cart {
+    color: white !important;
+    border-color: white !important;
+    background-color: #212529 !important;
+}
+
+    .btn-cart:hover {
+        background-color: #212529 !important;
+        color: #f1c40f !important;
+        border-color: #f1c40f !important;
+    }
